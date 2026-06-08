@@ -6,25 +6,32 @@ import { defineConfig } from 'astro/config';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://shravangoswami.com',
-	base: process.env.BASE_PATH || '/astro-scholar',
-	integrations: [
-		mdx(),
-		sitemap()
+  site: 'https://shravangoswami.com',
+  base: process.env.BASE_PATH || '/astro-scholar',
+
+  integrations: [
+      mdx(),
+      sitemap()
 	],
-	markdown: {
-		shikiConfig: {
-			themes: {
-				light: 'github-light',
-				dark: 'github-dark',
-			},
-		},
-		remarkPlugins: [remarkMath],
-		rehypePlugins: [rehypeKatex]
+
+  markdown: {
+      shikiConfig: {
+          themes: {
+              light: 'github-light',
+              dark: 'github-dark',
+          },
+      },
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex]
 	},
-	build: {
-		inlineStylesheets: 'always',
+
+  build: {
+      inlineStylesheets: 'always',
 	},
+
+  adapter: cloudflare(),
 });
