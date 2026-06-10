@@ -6,8 +6,8 @@
 	--font-serif: "Georgia", "Times New Roman", Times, serif;
 
 	/* --- LIGHT THEME (Default) --- */
-	--color-bg: #f9fafb;
-	--color-bg-offset: #f9fafb;
+	--color-bg: #ffffff;
+	--color-bg-offset: #ffffff;
 	/* Clean white for premium feel */
 	--color-bg-header: rgba(255, 255, 255, 0.85);
 	--color-text-main: #0f172a;
