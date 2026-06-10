@@ -6,15 +6,15 @@
 	--font-serif: "Georgia", "Times New Roman", Times, serif;
 
 	/* --- LIGHT THEME (Default) --- */
-	--color-bg: #ffffff;
-	--color-bg-offset: #ffffff;
+	--color-bg: #f9fafb;
+	--color-bg-offset: #f9fafb;
 	/* Clean white for premium feel */
 	--color-bg-header: rgba(255, 255, 255, 0.85);
-	--color-text-main: #1a1a1a;
-	--color-text-muted: #555555;
-	--color-accent: #003366;
+	--color-text-main: #0f172a;
+	--color-text-muted: #475569;
+	--color-accent: #2e4007;
 	/* Oxford Blue */
-	--color-accent-light: #e6f0fa;
+	--color-accent-light: #648c6e;
 	--color-border: #eaeaea;
 	--color-header-border: rgba(0, 0, 0, 0.08);
 	--color-bg-mobile-menu: rgba(255, 255, 255, 0.95);
