@@ -61,15 +61,15 @@ Then open http://localhost:4321/astro-scholar
 Update these files first:
 
 - `src/consts.ts`: site title and global constants
-- `src/data/authors.json`: author profiles
-- `src/data/projects.json`: project entries
-- `src/data/publications.bib`: publication list
-- `src/content/blog/*.md`: blog posts
+- `src/data/authors.json`: author profiles - Nem kell
+- `src/data/projects.json`: project entries - Nem kell
+- `src/data/publications.bib`: publication list - Próbáljuk meg áthozni az academic-portfolio-astro publication oldalát és komponenseit
+- `src/content/blog/*.md`: blog posts - Nem kell
 - `src/styles/global.css`: theme and typography
 
 Layout and components:
 
-- `src/layouts/BlogPost.astro`: post layout
+- `src/layouts/BlogPost.astro`: post layout - Nem kell
 - `src/components/Header.astro`: top navigation
 - `src/components/Footer.astro`: footer
 
