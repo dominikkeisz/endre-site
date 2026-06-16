@@ -11,7 +11,7 @@
 	/* Clean white for premium feel */
 	--color-bg-header: rgba(255, 255, 255, 0.85);
 	--color-text-main: #0f172a;
-	--color-text-muted: #475569;
+	--color-text-muted: #ffffff;
 	--color-accent: #2e4007;
 	/* Oxford Blue */
 	--color-accent-light: #648c6e;
@@ -93,7 +93,6 @@ main {
 	width: 100%;
 	max-width: var(--max-width);
 	margin: 0 auto;
-	padding: 3rem 1rem;
 }
 
 h1,
