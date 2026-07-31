@@ -497,7 +497,7 @@ const fallbackHero = id ? url(`/blog/${id}.png`) : url('/og.png');
 						<div class="prose">
 							<div class="title">
 								<div class="date">
-									<FormattedDate date={pubDate} />
+									<FormattedDate date={pubDate} hide={true}/>
 									{
 										updatedDate && (
 											<div class="last-updated-on">
