@@ -43,18 +43,11 @@ function parseEntry(input: string): Entry[] {
 
         let authors: Author[] = [];
         if (fields.author) {
-            authors = fields.author.split(/\s+and\s+/i).map(str => {
-                const parts = str.split(',');
-                if (parts.length > 1) {
-                    return { first: parts[1].trim(), last: parts[0].trim() };
-                } else {
-                    const names = str.trim().split(' ');
-                    const last = names.pop() || "";
-                    const first = names.join(' ');
-                    return { first, last };
-                }
-            });
-        }
+            authors = fields.author
+                .split(/\s+and\s+/i)
+                .map((author) => author.trim())
+                .filter(Boolean);
+        };
 
         entries.push({ type, key, fields, authors });
     }
@@ -89,12 +82,7 @@ const formatAuthor = (auth: Author) => {
                         </span>
 						
 						<div class="pub-authors">
-							{entry.authors && entry.authors.map((auth, i) => (
-								<>
-                                    <AuthorLink nameOrSlug={formatAuthor(auth)} />
-                                    {i < entry.authors.length - 1 ? ', ' : ''}
-                                </>
-							))}
+							{entry.authors}
 						</div>
 						
 						<div class="pub-venue">
