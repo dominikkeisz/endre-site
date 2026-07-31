@@ -17,7 +17,6 @@ This one is built for academic storytelling:
 
 - Blog posts for ideas, notes, and essays
 - Project pages for research work
-- Publications section from BibTeX
 - Team and author profiles
 - Search and generated OG images
 

@@ -17,15 +17,15 @@ interface Author {
 	last: string;
 }
 
-interface BibEntry {
+interface Entry {
 	type: string;
 	key: string;
 	fields: Record<string, string>;
 	authors: Author[];
 }
 
-function parseBibTeX(input: string): BibEntry[] {
-    const entries: BibEntry[] = [];
+function parseEntry(input: string): Entry[] {
+    const entries: Entry[] = [];
     const rawEntries = input.split(/@(\w+)\s*\{/g).slice(1);
 
     for (let i = 0; i < rawEntries.length; i += 2) {
@@ -65,7 +65,7 @@ function parseBibTeX(input: string): BibEntry[] {
     return entries;
 }
 
-const publications = parseBibTeX(bibFileRaw).sort((a, b) => {
+const publications = parseEntry(bibFileRaw).sort((a, b) => {
     return (parseInt(b.fields.year) || 0) - (parseInt(a.fields.year) || 0);
 }).slice(0, 3);
 
