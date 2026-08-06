@@ -7,12 +7,10 @@ export const SITE_DESCRIPTION = 'The academic portfolio of Friedrich Nietzsche.'
 export const CV_URL = 'https://shravangoswami.com/resume.pdf';
 
 export const CONTACT = {
-  organization: 'Shravan Goswami',
-  addressLines: [
-    'Creator of Astro Scholar',
-  ],
+  organization: 'Endre Sebestyén',
+  addressLines: [],
   emails: [
-    'contact@shravangoswami.com',
+    'endre.sebestyen@runbox.com',
   ],
 };
 
@@ -45,9 +43,4 @@ export const SOCIAL_LINKS: ReadonlyArray<{
   },
 ];
 
-export const FOOTER_CREDIT = {
-  designerName: 'Shravan Goswami',
-  designerUrl: 'https://shravangoswami.com',
-  sourceLabel: 'Open Source',
-  sourceUrl: 'https://github.com/shravanngoswamii/astro-scholar',
-};
+export const FOOTER_CREDIT = {};
