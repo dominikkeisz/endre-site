@@ -1,41 +1,236 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import BlogLayout from '../layouts/BlogPost.astro';
+import ServiceIcon from '../components/ServiceIcon.astro';
+
+const description = 'Detailed list of offered services and solutions.';
+
+const services = [
+  {
+    icon: 'rna' as const,
+    title: 'Transcriptomics Analysis & Pipeline Engineering',
+    text: 'Reproducible pipelines that turn raw reads (FASTQ), alignments (BAM/CRAM), or count matrices into biological discoveries — QC, de novo assembly, isoform annotation, alternative splicing, and differential expression.',
+  },
+  {
+    icon: 'population' as const,
+    title: 'Population Genetics & Association Studies',
+    text: 'QC and statistical analysis for population-scale variant data (VCF/BGEN/PLINK) — GWAS/PheWAS, fine-mapping, colocalization, and Mendelian Randomization, at UK Biobank / All of Us scale.',
+  },
+  {
+    icon: 'network' as const,
+    title: 'Multi-Omics Integration & Prioritization',
+    text: 'Unified workflows across genomics, transcriptomics, epigenomics, and RNA-protein dynamics, layered with CRISPR/RNAi screens to build one cohesive map of gene regulation and variant impact.',
+  },
+  {
+    icon: 'chart' as const,
+    title: 'Scientific Advisory & Data Visualization',
+    text: 'Publication-ready visualizations and data packages for grants and manuscripts, plus rigorous peer review of bioinformatics deliverables and objective scientific advisory.',
+  },
+];
 ---
 
-<Layout
-	title="Services &amp; Solutions"
-	description="Detailed list of offered services and solutions"
-	pubDate={new Date('October 15 1844')}
-	heroImage={AboutHeroImage}
+<BlogLayout
+  title="Services & Solutions"
+  description={description}
+  pubDate={new Date()}
+  updatedDate={undefined}
+  heroImage={undefined}
+  authors={[]}
+  tags={[]}
+  id={'services'}
+  headings={[]}
+  toc={false}
 >
-	<h3>Transcriptomics Analysis &amp; Pipeline Engineering:</h3>
-	<p>
-	 End-to-end processing and analysis of short- and long-read RNA-sequencing data, transforming raw sequences (FASTQ), alignments (BAM/CRAM) or count matrices into biological discoveries. I implement custom, reproducible pipelines covering quality control, de novo transcriptome assembly, novel isoform annotation, alternative splicing, and differential expression. These workflows are optimized to deliver clear, publication- ready insights
-	</p>
-	<br>
-	<h3>Population Genetics &amp; Large-Scale Association Studies:</h3>
-	<p>
-	Comprehensive quality control, processing, and statistical analysis for population-level variant datasets (VCF/BGEN/PLINK). Utilizing scalable cloud computing, I develop pipelines for Genome-Wide and Phenome-Wide Association Studies (GWAS/PheWAS), statistical fine-mapping, colocalization, and Mendelian Randomization. Backed by extensive experience handling multi-terabyte cohorts—including the UK Biobank and All of Us Research Program—I seamlessly integrate proprietary datasets with public repositories to deliver functional variant annotations and validated causal insights.
-	</p>
-	<br>
-	<h3>Multi-Omics Integration &amp; Systems-Level Prioritization:</h3>
-	<p>
-	I build unified workflows that integrate diverse omics modalities to uncover systemic biological mechanisms and prioritize high-confidence leads. My expertise spans the joint analysis of genomics, transcriptomics, epigenomics, and RNA-protein dynamics datasets. By layering these molecular readouts with functional CRISPR/RNAi screens, I apply a unique systems-level perspective to translate fragmented multi-omic datasets into a single, cohesive map of gene regulation, variant impact, and macro-scale therapeutic or environmental pathways.
-	</p>
-	<br>
-	<h3>Scientific Advisory, Data Visualization &amp; Strategic Review:</h3>
-	<p>
-	I provide strategic scientific oversight and high-impact data curation to accelerate research milestones, secure funding, and ensure project alignment. Leveraging over 20 years of cross- disciplinary experience, I translate complex multi-omic results into publication-ready visualizations and compelling data packages for grant submissions, manuscripts, and technical reports. Beyond data presentation, I conduct rigorous peer reviews of internal and public datasets, audit bioinformatics deliverables, and provide objective scientific advisory that synthesizes granular molecular data with macro-level project goals, ensuring data integrity at every stage of the research lifecycle.
-	</p>
-	<br>
-	<h3>Pricing Structure</h3>
-	<p>
-	Services are billed on an hourly basis to accommodate the iterative nature of bioinformatics workflows. Research objectives—whether within academia, early- stage startups, or pharmaceutical corporations—frequently shift based on interim data findings. Hourly billing ensures the agility required to modify deliverables, pivot analytical pipelines, and adjust timelines without the restrictive constraints of fixed- price contracts. Budget estimates and monthly caps can be established prior to project initiation to ensure financial predictability.
-	</p>
-	<br>
-	<h3>Computing &amp; Infrastructure Costs</h3>
-	<p>
-	All fees relate strictly to consulting hours. External expenses associated with computational infrastructure—including cloud compute instances, high-performance storage, data egress/transfer fees, and repository backups—are billed directly to the client or provisioned within the client&#39;s own cloud environment. The only exceptions are low-overhead tasks executed locally on the consultant&#39;s workstation, such as final downstream statistical modeling or tabular data visualization.
-	</p>
-</Layout>
+  <section class="svc-section">
+    <header class="svc-header">
+      <p class="svc-intro">Four ways to work together, from <em>raw sequence</em> to <em>strategic sign-off</em>.</p>
+    </header>
+
+    <div class="svc-grid">
+      {services.map((service) => (
+        <article class="svc-card">
+          <div class="svc-card-icon">
+            <ServiceIcon name={service.icon} size={28} />
+          </div>
+          <h3>{service.title}</h3>
+          <p>{service.text}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="svc-band">
+      <div class="band-col">
+        <div class="band-icon"><ServiceIcon name="clock" size={26} /></div>
+        <div>
+          <h4>Pricing Structure</h4>
+          <p>Services are billed on an hourly basis to accommodate the iterative nature of bioinformatics workflows. Research objectives — whether within academia, early-stage startups, or pharmaceutical corporations — frequently shift based on interim data findings, and hourly billing keeps the agility to modify deliverables, pivot analytical pipelines, and adjust timelines without the constraints of a fixed-price contract. Budget estimates and monthly caps can be established prior to project initiation for financial predictability.</p>
+        </div>
+      </div>
+      <div class="band-divider" aria-hidden="true"></div>
+      <div class="band-col">
+        <div class="band-icon"><ServiceIcon name="server" size={26} /></div>
+        <div>
+          <h4>Computing &amp; Infrastructure Costs</h4>
+          <p>All fees relate strictly to consulting hours. External expenses associated with computational infrastructure — including cloud compute instances, high-performance storage, data egress/transfer fees, and repository backups — are billed directly to the client or provisioned within the client&rsquo;s own cloud environment. The only exceptions are low-overhead tasks executed locally on the consultant&rsquo;s workstation, such as final downstream statistical modeling or tabular data visualization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    :global(.blog-container) {
+      max-width: 1320px !important;
+    }
+    :global(.prose-wrapper) {
+      width: 100% !important;
+    }
+
+    .svc-section {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem 5rem;
+    }
+
+    .svc-header {
+      margin: 0 0 2.25rem;
+      border-left: 3px solid var(--color-accent);
+      padding-left: 1.5rem;
+    }
+    .svc-intro {
+      margin: 0;
+      max-width: 52ch;
+      color: var(--color-text-main);
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.35;
+    }
+    .svc-intro em {
+      color: var(--color-accent);
+      font-style: italic;
+    }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .svc-card {
+      border: 1px solid var(--color-border);
+      border-radius: 1.25rem;
+      background-color: var(--color-bg);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+    .svc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg, var(--shadow-md));
+      border-color: color-mix(in srgb, var(--color-accent) 30%, var(--color-border));
+    }
+
+    .svc-card-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 999px;
+      background-color: var(--color-accent-light);
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    html[data-theme='dark'] .svc-card-icon {
+      color: #ffffff;
+    }
+
+    .svc-card h3 {
+      margin: 0 0 0.65rem;
+      color: var(--color-text-main);
+      font-size: 1.18rem;
+    }
+    .svc-card p {
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: 0.96rem;
+      text-align: left;
+    }
+
+    .svc-band {
+      --on-accent: #ffffff;
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: start;
+      gap: 2.5rem;
+      border-radius: 1.5rem;
+      background-color: var(--color-accent);
+      color: var(--on-accent);
+      padding: 2.75rem 3rem;
+      box-shadow: var(--shadow-lg, var(--shadow-md));
+    }
+    html[data-theme='dark'] .svc-band {
+      --on-accent: var(--color-bg);
+    }
+
+    .band-col {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+    }
+    .band-icon {
+      flex-shrink: 0;
+      color: var(--on-accent);
+      opacity: 0.9;
+      margin-top: 0.15rem;
+    }
+    .band-col h4 {
+      margin: 0 0 0.4rem;
+      color: var(--on-accent);
+      font-size: 1.05rem;
+    }
+    .band-col p {
+      margin: 0;
+      color: var(--on-accent);
+      opacity: 0.85;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+    .band-divider {
+      width: 1px;
+      align-self: stretch;
+      background-color: var(--on-accent);
+      opacity: 0.25;
+    }
+
+    @media (max-width: 860px) {
+      .svc-grid {
+        grid-template-columns: 1fr;
+      }
+      .svc-band {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        padding: 2rem 2.25rem;
+      }
+      .band-divider {
+        width: auto;
+        height: 1px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .svc-section {
+        padding: 1.5rem 1.25rem 3.5rem;
+      }
+      .svc-header {
+        padding-left: 1.1rem;
+      }
+      .svc-intro {
+        font-size: 1.28rem;
+      }
+      .svc-card {
+        padding: 1.75rem;
+      }
+    }
+  </style>
+</BlogLayout>
