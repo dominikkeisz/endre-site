@@ -1,0 +1,81 @@
+---
+/*
+ * Small line-icon set for the services page, themed on the
+ * bioinformatics/genomics keywords the site talks about (DNA helix,
+ * RNA strand, GWAS/Manhattan-plot dots, an omics network, a trend
+ * chart, a clock for hourly billing, a server stack for infra costs).
+ * All icons share a viewBox/stroke style so they drop into any of the
+ * services-page layout options without adjustment.
+ */
+interface Props {
+  name: 'dna' | 'rna' | 'population' | 'network' | 'chart' | 'clock' | 'server';
+  size?: number;
+}
+
+const { name, size = 28 } = Astro.props;
+---
+
+{name === 'dna' && (
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M13 4c0 8 14 8 14 16s-14 8-14 16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+    <path d="M27 4c0 8-14 8-14 16s14 8 14 16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+    <path d="M14.3 10h11.4M13.2 20h13.6M14.3 30h11.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+  </svg>
+)}
+
+{name === 'rna' && (
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M3 24c4-9 8-9 12 0s8 9 12 0 8-9 12 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="7" cy="20.5" r="1.7" fill="currentColor"/>
+    <circle cx="15" cy="15.5" r="1.7" fill="currentColor"/>
+    <circle cx="23" cy="27.5" r="1.7" fill="currentColor"/>
+    <circle cx="31" cy="15.5" r="1.7" fill="currentColor"/>
+  </svg>
+)}
+
+{name === 'population' && (
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M3 33h34" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    <circle cx="7" cy="29" r="1.5" fill="currentColor"/>
+    <circle cx="12" cy="26.5" r="1.5" fill="currentColor"/>
+    <circle cx="17" cy="30" r="1.5" fill="currentColor"/>
+    <circle cx="21.5" cy="10" r="1.9" fill="currentColor"/>
+    <circle cx="26" cy="28" r="1.5" fill="currentColor"/>
+    <circle cx="30" cy="24.5" r="1.5" fill="currentColor"/>
+    <circle cx="34.5" cy="7" r="1.9" fill="currentColor"/>
+  </svg>
+)}
+
+{name === 'network' && (
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M11 12.5 18 20M29 12.5 22 20M11 28 18 20.5M29 28 22 20.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    <circle cx="20" cy="20" r="3.6" fill="currentColor"/>
+    <circle cx="8" cy="9" r="3" stroke="currentColor" stroke-width="1.7"/>
+    <circle cx="32" cy="9" r="3" stroke="currentColor" stroke-width="1.7"/>
+    <circle cx="8" cy="31" r="3" stroke="currentColor" stroke-width="1.7"/>
+    <circle cx="32" cy="31" r="3" stroke="currentColor" stroke-width="1.7"/>
+  </svg>
+)}
+
+{name === 'chart' && (
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M6 34V21M15.3 34V13M24.7 34V24M34 34V7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+    <path d="M4 17l10.7-9 9.3 9.5L36 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+)}
+
+{name === 'clock' && (
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="20" cy="20" r="15.5" stroke="currentColor" stroke-width="1.9"/>
+    <path d="M20 11v9.5l6.5 3.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+)}
+
+{name === 'server' && (
+  <svg width={size} height={size} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect x="5" y="7" width="30" height="9" rx="2.2" stroke="currentColor" stroke-width="1.7"/>
+    <rect x="5" y="22" width="30" height="9" rx="2.2" stroke="currentColor" stroke-width="1.7"/>
+    <circle cx="11" cy="11.5" r="1.3" fill="currentColor"/>
+    <circle cx="11" cy="26.5" r="1.3" fill="currentColor"/>
+  </svg>
+)}
