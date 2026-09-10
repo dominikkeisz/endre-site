@@ -60,6 +60,39 @@ const description = 'Get in touch to discuss your needs, ask questions, or book 
         </div>
 
         <div class="field-group">
+          <label for="service">What service are you interested in?</label>
+          <select id="service" name="service" required>
+            <option value="" selected disabled>Select a service</option>
+            <option value="Transcriptomics Analysis &amp; Pipeline Engineering">
+              Transcriptomics Analysis &amp; Pipeline Engineering
+            </option>
+            <option value="Population Genetics &amp; Large-Scale Association Studies">
+              Population Genetics &amp; Large-Scale Association Studies
+            </option>
+            <option value="Multi-Omics Integration &amp; Systems-Level Prioritization">
+              Multi-Omics Integration &amp; Systems-Level Prioritization
+            </option>
+            <option value="Scientific Advisory">Scientific Advisory</option>
+            <option value="Data Visualization &amp; Strategic Review">
+              Data Visualization &amp; Strategic Review
+            </option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="has-data">Do you already have the necessary data?</label>
+          <textarea
+            id="has-data"
+            name="has_data"
+            rows="4"
+            maxlength="2000"
+            autocomplete="off"
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <div class="field-group">
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5" required></textarea>
         </div>
@@ -121,16 +154,24 @@ const description = 'Get in touch to discuss your needs, ask questions, or book 
     }
 
     .field-group input,
+    .field-group select,
     .field-group textarea {
       width: 100%;
       padding: 0.6rem 0.75rem;
       font-size: 1rem;
+      font-family: inherit;
       border-radius: 0.5rem;
       border: 1px solid var(--color-border, #d4d1ca);
       background-color: var(--color-surface-2, #fbfbf9);
+      color: inherit;
+    }
+
+    .field-group textarea {
+      resize: vertical;
     }
 
     .field-group input:focus-visible,
+    .field-group select:focus-visible,
     .field-group textarea:focus-visible {
       outline: 2px solid var(--color-primary, #01696f);
       outline-offset: 2px;
