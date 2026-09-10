@@ -2,9 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = 'Endre Sebestyén';
-export const SITE_DESCRIPTION = 'The academic portfolio of Friedrich Nietzsche.';
-
-export const CV_URL = 'https://shravangoswami.com/resume.pdf';
+export const SITE_DESCRIPTION = 'Computational biologist and bioinformatics consultant with 20+ years of experience turning genomic and transcriptomic data into actionable discoveries.';
 
 export const CONTACT = {
   organization: 'Endre Sebestyén',
@@ -22,24 +20,19 @@ export const SOCIAL_LINKS: ReadonlyArray<{
   icon: SocialIcon;
 }> = [
   {
-    label: 'GitHub',
-    href: 'https://github.com/shravanngoswamii/astro-scholar',
-    icon: 'github',
-  },
-  {
     label: 'Email',
-    href: 'mailto:contact@shravangoswami.com',
+    href: 'mailto:endre.sebestyen@runbox.com',
     icon: 'email',
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/shravangoswami/',
+    href: 'https://www.linkedin.com/in/endre-sebestyen/',
     icon: 'linkedin',
   },
   {
-    label: 'X',
-    href: 'https://x.com/shravangoswamii',
-    icon: 'twitter',
+    label: 'Google Scholar',
+    href: 'https://scholar.google.com/citations?user=EFq-0McAAAAJ',
+    icon: 'scholar',
   },
 ];
 

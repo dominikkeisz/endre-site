@@ -1,9 +1,7 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { CV_URL, SITE_TITLE } from '../consts';
+import { SITE_TITLE } from '../consts';
 import { url } from '../utils/paths';
-
-const cvHref = CV_URL ? url(CV_URL) : null;
 ---
 
 <header>
@@ -13,7 +11,6 @@ const cvHref = CV_URL ? url(CV_URL) : null;
 		<div class="internal-links">
 			<HeaderLink href={url('/')}>Home</HeaderLink>
 			<HeaderLink href={url('/publications')}>Publications</HeaderLink>
-			<HeaderLink href={url('/projects')}>Publications 2</HeaderLink>
 			<HeaderLink href={url('/about')}>About me</HeaderLink>
 			<HeaderLink href={url('/services')}>Services</HeaderLink>
 			<HeaderLink href={url('/contact')}>Contact</HeaderLink>
@@ -37,7 +34,7 @@ const cvHref = CV_URL ? url(CV_URL) : null;
         <a href={url('/publications')}>Publications</a>
         <a href={url('/about')}>About me</a>
         <a href={url('/services')}>Services</a>
-        <a href={url('/publications')}>Contact</a>
+        <a href={url('/contact')}>Contact</a>
     </div>
 </header>
 
