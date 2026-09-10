@@ -1,111 +1,463 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import { Image } from 'astro:assets';
+import BlogLayout from '../layouts/BlogPost.astro';
+import AboutPortrait from '../assets/blog-placeholder-about.jpg';
+import { url } from '../utils/paths';
+
+const description =
+	'Introduction of Endre Sebestyén, his background, studies and experiences alongside a brief explanation of his current work.';
+
+const experience = [
+	{
+		role: 'Bioinformatics Consultant',
+		org: 'The Bioinformatics CRO',
+		location: 'Orlando, Florida, US',
+		dates: 'December 2020 – Present',
+		text: 'Partnering with diverse clients to translate next-generation sequencing (NGS) data into biological insights, specializing in custom genomics and transcriptomics pipelines.',
+	},
+	{
+		role: 'Bioinformatics Group Leader',
+		org: 'Semmelweis University',
+		location: 'Budapest, HU',
+		dates: 'September 2018 – December 2021',
+		text: 'Directed genomics and molecular diagnostics research initiatives, managed a dedicated bioinformatics team, mentored junior scientists, and instructed university-level data science courses.',
+	},
+	{
+		role: 'Postdoctoral researcher',
+		org: 'IFOM-ETS',
+		location: 'Milan, IT',
+		dates: 'September 2015 – August 2018',
+		text: 'Analyzed complex genomic datasets to uncover mechanisms driving cancer and rare diseases; engineered novel biostatistical methods and software tools to model chromatin architecture.',
+	},
+	{
+		role: 'Postdoctoral researcher',
+		org: 'GRIB-UPF',
+		location: 'Barcelona, ES',
+		dates: 'February 2012 – August 2015',
+		text: 'Processed large-scale cancer genomic and transcriptomic cohorts, developing a novel computational framework to detect transcript isoform and alternative splicing switches across tumor samples.',
+	},
+	{
+		role: 'Bioinformatician',
+		org: 'Agricultural Research Institute of the Hungarian Academy of Sciences',
+		location: 'Martonvásár, HU',
+		dates: 'January 2006 – January 2012',
+		text: 'Spearheaded bioinformatics, biostatistics, and data visualization workflows supporting agricultural genomics and plant genetics. Advanced agritech initiatives through custom database integration and multi-omics analysis of non-model organisms.',
+	},
+	{
+		role: 'PhD Candidate',
+		org: 'Agricultural Biotechnology Center',
+		location: 'Gödöllő, HU',
+		dates: 'September 2003 – August 2006',
+		text: 'Executed agricultural bioinformatics and biostatistical analyses, building and managing specialized databases and web-accessible tools to support high-throughput genomics research.',
+	},
+];
+
+const education = [
+	{
+		degree: 'MA in Human Ecology',
+		org: 'Eötvös Loránd University',
+		dates: '2021 – 2023',
+		text: 'Research focus: modeling long-term landscape transformation in the Middle-Ipoly region by integrating quantitative GIS and meteorological datasets with qualitative interviews and historical source analysis.',
+	},
+	{
+		degree: 'PhD in Classical and Molecular Genetics',
+		org: 'Eötvös Loránd University',
+		dates: '2003 – 2006',
+		text: 'Research focus: development of DoOP and DoOPSearch, web-based eukaryotic promoter motif search and enrichment tools for comparative genomics.',
+	},
+	{
+		degree: 'MSc in Biology',
+		org: 'Eötvös Loránd University',
+		dates: '1998 – 2003',
+		text: 'Research focus: analysis of the evolutionary conservation of eukaryotic transcription factor binding sites and promoter regions.',
+	},
+];
+
 ---
 
-<Layout
+<BlogLayout
 	title="About me"
-	description="Introduction of Endre Sebestyén, his background, studies and experiences alongside a brief explanation of his current work."
-	pubDate={new Date('October 15 1844')}
-	heroImage={AboutHeroImage}
+	description={description}
+	pubDate={new Date()}
+	updatedDate={undefined}
+	heroImage={undefined}
+	authors={[]}
+	tags={[]}
+	id={'about'}
+	headings={[]}
+	toc={false}
 >
-	<p>
-	Computational biologist with over 20 years of experience analyzing complex
-	biological data and deploying scalable infrastructure. Originally trained in molecular
-	biology and genetics at Eötvös Loránd University, I transitioned to computational
-	biology during my Master&#39;s studies and subsequently earned a PhD in Classical and
-	Molecular Genetics, focusing on the evolutionary conservation of gene expression
-	regulation. My career spans high-impact roles across agricultural biotechnology,
-	cancer genomics, and molecular diagnostics, where I specialized in engineering end-
-	to-end bioinformatics pipelines, developing novel analytical tools, and bridging the
-	gap between dry-lab and wet-lab teams. Across these roles, I handled multi-terabyte
-	datasets, analyzed hundreds of patient samples, and frequently managed research
-	projects.
-	</p>
-	<p>
-	Available for consulting engagements, pipeline development or workflow auditing, to
-	turn your next-generation sequencing results into actionable insights. Let’s discuss
-	your project needs [link to Calendly].
-	</p>
-	<p>
-	Currently operating as an independent consultant, I partner with biotech startups,
-	academic laboratories, and independent researchers to translate raw sequencing
-	data into biological discoveries, utilizing R, Python, Snakemake, and cloud
-	infrastructure (AWS/GCP). To complement my deep expertise in genomics and
-	transcriptomics, I also hold a Master’s in Human Ecology. This unique combination
-	allows me to apply systems-level thinking—integrating sociology, ecology, and data
-	science—to complex biological problems, making me a highly adaptable partner for
-	projects requiring both granular genetic analysis and macro-scale environmental or
-	ecological context.
-	</p>
-	<p>
-	<b>Experience</b>
-	</p>
-	<p>
-	Bioinformatics Consultant | The Bioinformatics CRO (Orlando, Florida, US)
-	<i>December 2020 – Present</i>
-	<ul>
-  	<li>Partnering with diverse clients to translate next-generation sequencing (NGS) data into biological insights, specializing in custom 		genomics and transcriptomics pipelines.</li>
-	</ul>
-	</p>
-	<p>
-	Bioinformatics Group Leader | Semmelweis University (Budapest, HU)
-	<i>September 2018 – December 2021</i>
-	<ul>
-  	<li>Directed genomics and molecular diagnostics research initiatives, managed a dedicated bioinformatics team, mentored junior scientists, 		and instructed university-level data science courses.</li>
-	</ul>
-	</p>
-	<p>
-	Postdoctoral researcher | IFOM-ETS (Milan, IT)
-	<i>September 2015 – August 2018</i>
-	<ul>
-  	<li>Analyzed complex genomic datasets to uncover mechanisms driving cancer and rare diseases; engineered novel biostatistical methods and 		software tools to model chromatin architecture.</li>
-	</ul>
-	</p>
-	<p>
-	Postdoctoral researcher | GRIB-UPF (Barcelona, ES)
-	<i>February 2012 – August 2015</i>
-	<ul>
-  	<li>Processed large-scale cancer genomic and transcriptomic cohorts, developing a novel computational framework to detect transcript isoform 	and alternative splicing switches across tumor samples.</li>
-	</ul>
-	</p>
-	<p>
-	Bioinformatician | Agricultural Research Institute of the Hungarian Academy of Sciences (Martonvásár, HU)
-	<i>January 2006 – January 2012</i>
-	<ul>
-  	<li>Spearheaded bioinformatics, biostatistics, and data visualization workflows supporting agricultural genomics and plant genetics. 			Advanced agritech initiatives through custom database integration and multi-omics analysis of non-model organisms.</li>
-	</ul>
-	</p>
-	<p>
-	PhD Candidate | Agricultural Biotechnology Center (Gödöllő, HU)
-	<i>September 2003 – August 2006</i>
-	<ul>
-  	<li>Executed agricultural bioinformatics and biostatistical analyses, building and managing specialized databases and web-accessible tools 		to support high-throughput genomics research.</li>
-	</ul>
-	</p>
-	<br>
-	<p>
-	<b>Education</b>
-	</p>
-	<p>
-	MA in Human Ecology | Eötvös Loránd University
-	<i>2021 – 2023</i>
-	<ul>
-  	<li>Research focus: Modeling long-term landscape transformation in the Middle-Ipoly region by integrating quantitative GIS and 					meteorological datasets with qualitative interviews and historical source analysis.</li>
-	</ul>
-	</p>
-	<p>
-	PhD in Classical and Molecular Genetics | Eötvös Loránd University
-	<i>2003 – 2006</i>
-	<ul>
-  	<li>Research focus: Development of DoOP and DoOPSearch, web-based eukaryotic promoter motif search and enrichment tools for comparative 		genomics.</li>
-	</ul>
-	</p>
-	<p>
-	MSc in Biology | Eötvös Loránd University
-	<i>1998 – 2003</i>
-	<ul>
-  	<li>Research focus: Analysis of the evolutionary conservation of eukaryotic transcription factor binding sites and promoter regions.</li>
-	</ul>
-	</p>
-</Layout>
+	<section class="about-section">
+		<div class="about-bio">
+			<div class="about-bio-text">
+				<p>
+					Computational biologist with over 20 years of experience analyzing complex biological data
+					and deploying scalable infrastructure. Originally trained in molecular biology and genetics
+					at Eötvös Loránd University, I transitioned to computational biology during my Master&rsquo;s
+					studies and subsequently earned a PhD in Classical and Molecular Genetics, focusing on the
+					evolutionary conservation of gene expression regulation. My career spans high-impact roles
+					across agricultural biotechnology, cancer genomics, and molecular diagnostics, where I
+					specialized in engineering end-to-end bioinformatics pipelines, developing novel analytical
+					tools, and bridging the gap between dry-lab and wet-lab teams. Across these roles, I handled
+					multi-terabyte datasets, analyzed hundreds of patient samples, and frequently managed
+					research projects.
+				</p>
+				<p>
+					Currently operating as an independent consultant, I partner with biotech startups, academic
+					laboratories, and independent researchers to translate raw sequencing data into biological
+					discoveries, utilizing R, Python, Snakemake, and cloud infrastructure (AWS/GCP). To
+					complement my deep expertise in genomics and transcriptomics, I also hold a Master&rsquo;s in
+					Human Ecology. This unique combination allows me to apply systems-level thinking —
+					integrating sociology, ecology, and data science — to complex biological problems, making me
+					a highly adaptable partner for projects requiring both granular genetic analysis and
+					macro-scale environmental or ecological context.
+				</p>
+			</div>
+
+			<div class="about-photo">
+				<Image src={AboutPortrait} alt="Endre Sebestyén" width={960} height={1200} />
+			</div>
+		</div>
+
+		<div class="about-band">
+			<div>
+				<h4>Available for new projects</h4>
+				<p>
+					Available for consulting engagements, pipeline development, or workflow auditing —
+					let&rsquo;s turn your next-generation sequencing results into actionable insights.
+				</p>
+			</div>
+			<a class="about-band-cta" href={url('/contact')}>
+				Let&rsquo;s discuss your project
+				<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+					<path
+						d="M3 8h9.5M8.5 3.5 13 8l-4.5 4.5"
+						stroke="currentColor"
+						stroke-width="1.6"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					></path>
+				</svg>
+			</a>
+		</div>
+
+		<div class="about-timeline-block">
+			<h3 class="about-timeline-title">Experience</h3>
+			<ol class="timeline">
+				{experience.map((item) => (
+					<li class="timeline-item">
+						<div class="timeline-head">
+							<h4>{item.role}</h4>
+							<span class="timeline-dates">{item.dates}</span>
+						</div>
+						<p class="timeline-org">{item.org} &middot; {item.location}</p>
+						<p class="timeline-desc">{item.text}</p>
+					</li>
+				))}
+			</ol>
+		</div>
+
+		<div class="about-timeline-block">
+			<h3 class="about-timeline-title">Education</h3>
+			<ol class="timeline">
+				{education.map((item) => (
+					<li class="timeline-item">
+						<div class="timeline-head">
+							<h4>{item.degree}</h4>
+							<span class="timeline-dates">{item.dates}</span>
+						</div>
+						<p class="timeline-org">{item.org}</p>
+						<p class="timeline-desc">{item.text}</p>
+					</li>
+				))}
+			</ol>
+		</div>
+	</section>
+
+	<style>
+		/*
+		 * BlogPost's .prose-wrapper hardcodes width:760px for readable article
+		 * text. The about page isn't an article — override it (and the
+		 * container it sits in), same as the Contact and Services pages.
+		 */
+		:global(.blog-container) {
+			max-width: 1320px !important;
+		}
+
+		:global(.prose-wrapper) {
+			width: 100% !important;
+		}
+
+		.about-section {
+			max-width: 1320px;
+			margin: 0 auto;
+			padding: 0.5rem 1.5rem 5rem;
+		}
+
+		/* ---------- narrative bio, photo on the right ---------- */
+		.about-bio {
+			display: grid;
+			grid-template-columns: 1fr minmax(264px, 384px);
+			gap: 2.5rem;
+			align-items: start;
+			margin-bottom: 3rem;
+		}
+
+		.about-bio-text {
+			border-left: 3px solid var(--color-accent);
+			padding-left: 1.5rem;
+		}
+
+		.about-bio-text p {
+			max-width: 70ch;
+			color: var(--color-text-muted);
+			font-size: 1rem;
+			line-height: 1.7;
+			text-align: left;
+			hyphens: none;
+			margin: 0 0 1.25rem;
+		}
+
+		.about-bio-text p:last-child {
+			margin-bottom: 0;
+		}
+
+		.about-photo {
+			border-radius: 1.25rem;
+			overflow: hidden;
+			aspect-ratio: 4 / 5;
+			box-shadow: var(--shadow-md);
+			background-color: var(--color-bg-offset);
+		}
+
+		.about-photo :global(img) {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 0;
+			box-shadow: none;
+		}
+
+		/* ---------- availability band ---------- */
+		.about-band {
+			--on-accent: #ffffff;
+			margin-bottom: 3rem;
+			display: grid;
+			grid-template-columns: 1fr auto;
+			align-items: center;
+			gap: 2rem;
+			border-radius: 1.5rem;
+			background-color: var(--color-accent);
+			color: var(--on-accent);
+			padding: 2.5rem 3rem;
+			box-shadow: var(--shadow-lg, var(--shadow-md));
+		}
+
+		html[data-theme='dark'] .about-band {
+			--on-accent: var(--color-bg);
+		}
+
+		.about-band h4 {
+			margin: 0 0 0.5rem;
+			color: var(--on-accent);
+			font-size: 1.15rem;
+		}
+
+		.about-band p {
+			margin: 0;
+			max-width: 56ch;
+			color: var(--on-accent);
+			opacity: 0.9;
+			font-size: 0.98rem;
+			text-align: left;
+		}
+
+		.about-band-cta {
+			flex-shrink: 0;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.6rem;
+			background-color: var(--on-accent);
+			color: var(--color-accent);
+			border: 2px solid var(--on-accent);
+			padding: 0.9rem 1.6rem;
+			border-radius: 999px;
+			font-weight: 700;
+			font-size: 1rem;
+			white-space: nowrap;
+			text-decoration: none !important;
+			transition: background-color 160ms ease, color 160ms ease, transform 120ms ease;
+		}
+
+		.about-band-cta svg {
+			transition: transform 160ms ease;
+		}
+
+		.about-band-cta:hover,
+		.about-band-cta:focus-visible {
+			background-color: transparent;
+			color: var(--on-accent);
+			transform: translateY(-2px);
+		}
+
+		.about-band-cta:hover svg,
+		.about-band-cta:focus-visible svg {
+			transform: translateX(4px);
+		}
+
+		.about-band-cta:focus-visible {
+			outline: 2px solid var(--on-accent);
+			outline-offset: 3px;
+		}
+
+		/* ---------- experience / education timelines ---------- */
+		.about-timeline-block {
+			margin-bottom: 3rem;
+		}
+
+		.about-timeline-block:last-child {
+			margin-bottom: 0;
+		}
+
+		.about-timeline-title {
+			font-size: 1.55rem;
+			color: var(--color-text-main);
+			margin: 0 0 1.75rem;
+		}
+
+		.timeline {
+			position: relative;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.timeline::before {
+			content: '';
+			position: absolute;
+			left: 0.4rem;
+			top: 0.3rem;
+			bottom: 0.3rem;
+			width: 2px;
+			background-color: var(--color-border);
+		}
+
+		.timeline-item {
+			position: relative;
+			padding-left: 2.25rem;
+			padding-bottom: 2rem;
+		}
+
+		.timeline-item:last-child {
+			padding-bottom: 0;
+		}
+
+		.timeline-item::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0.3rem;
+			width: 0.85rem;
+			height: 0.85rem;
+			border-radius: 999px;
+			background-color: var(--color-bg);
+			border: 2px solid var(--color-accent);
+			z-index: 1;
+		}
+
+		.timeline-head {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: 0.75rem;
+			margin-bottom: 0.3rem;
+		}
+
+		.timeline-head h4 {
+			margin: 0;
+			font-size: 1.08rem;
+			color: var(--color-text-main);
+		}
+
+		.timeline-dates {
+			flex-shrink: 0;
+			font-size: 0.85rem;
+			font-style: italic;
+			color: var(--color-text-muted);
+			white-space: nowrap;
+		}
+
+		.timeline-org {
+			margin: 0 0 0.6rem;
+			font-size: 0.92rem;
+			font-weight: 600;
+			color: var(--color-accent);
+			text-align: left;
+		}
+
+		.timeline-desc {
+			margin: 0;
+			max-width: 70ch;
+			font-size: 0.95rem;
+			line-height: 1.65;
+			color: var(--color-text-muted);
+			text-align: left;
+			hyphens: none;
+		}
+
+		/* ---------- responsive ---------- */
+		@media (max-width: 860px) {
+			.about-bio {
+				grid-template-columns: 1fr;
+				gap: 1.75rem;
+			}
+
+			.about-photo {
+				order: -1;
+				aspect-ratio: 16 / 9;
+				max-width: 31rem;
+			}
+
+			.about-band {
+				grid-template-columns: 1fr;
+				gap: 1.5rem;
+				text-align: left;
+			}
+
+			.about-band-cta {
+				width: fit-content;
+			}
+		}
+
+		@media (max-width: 640px) {
+			.about-section {
+				padding: 1.5rem 1.25rem 3.5rem;
+			}
+
+			.about-band-cta {
+				width: 100%;
+				justify-content: center;
+			}
+
+			.about-bio-text {
+				padding-left: 1.1rem;
+			}
+
+			.about-photo {
+				max-width: none;
+			}
+
+			.about-band {
+				padding: 2rem 1.5rem;
+			}
+
+			.timeline-head {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0.2rem;
+			}
+		}
+	</style>
+</BlogLayout>
