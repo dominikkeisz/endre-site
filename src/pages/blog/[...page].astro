@@ -15,7 +15,7 @@ export async function getStaticPaths() {
     );
 
     const pageSize = 4;
-    const totalPages = Math.ceil(posts.length / pageSize);
+    const totalPages = Math.max(1, Math.ceil(posts.length / pageSize));
     const paths = [];
 
     for (let i = 1; i <= totalPages; i++) {
